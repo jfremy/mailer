@@ -13,10 +13,11 @@ describe('CompoundMailer', function() {
         var user = {name: 'Ben Afflek'};
         compound.mailer.send('user/registration', user, function(err, res) {
             if (err) throw err;
-            res.message.indexOf('Subject: Welcome!').should.not.be.equal(-1);
-            res.message.indexOf('Hello <strong>Ben Afflek</strong>!').should.not.be.equal(-1);
-            res.message.indexOf('Hello, Ben Afflek.').should.not.be.equal(-1);
-            res.message.indexOf('HEADER').should.not.be.equal(-1);
+            var msg = res.response.toString();
+            msg.indexOf('Subject: Welcome!').should.not.be.equal(-1);
+            msg.indexOf('Hello <strong>Ben Afflek</strong>!').should.not.be.equal(-1);
+            msg.indexOf('Hello, Ben Afflek.').should.not.be.equal(-1);
+            msg.indexOf('HEADER').should.not.be.equal(-1);
             // console.log(res.message.split('\n\r?\n')[0]);
             // console.log(res.message.split('\n\r?\n')[1]);
             done();
@@ -26,9 +27,10 @@ describe('CompoundMailer', function() {
     it('should setup default layout', function(done) {
         compound.mailer.send('e-commerce/order', function(err, res) {
             if (err) throw err;
-            res.message.indexOf('Header').should.not.be.equal(-1);
-            res.message.indexOf('Footer').should.not.be.equal(-1);
-            res.message.indexOf('<a href=3D=22/order=22>Your order</a>').should.not.be.equal(-1);
+            var msg = res.response.toString();
+            msg.indexOf('Header').should.not.be.equal(-1);
+            msg.indexOf('Footer').should.not.be.equal(-1);
+            msg.indexOf('<a href="/order">Your order</a>').should.not.be.equal(-1);
             done();
         });
     });
