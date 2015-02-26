@@ -12,10 +12,11 @@
     "lib": "lib"
   },
   "devDependencies": {
-    "mocha": "1.8.1",
-    "should": "1.2.2",
+    "mocha": "2.1.0",
+    "should": "5.0.1",
     "semicov": "0.1.1",
-    "compound": "1.1.5-14",
+    "express": "4.x",
+    "compound": "git+https://github.com/jfremy/compound.git#express4",
     "ejs": "0.8.3"
   },
   "dependencies": {
