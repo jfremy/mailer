@@ -17,7 +17,7 @@
     "semicov": "0.1.1",
     "express": "4.x",
     "compound": "git+https://github.com/jfremy/compound.git#express4",
-    "ejs": "0.8.3"
+    "ejs": "2.x"
   },
   "dependencies": {
     "nodemailer": "0.6.1"
