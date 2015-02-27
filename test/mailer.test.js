@@ -28,6 +28,7 @@ describe('CompoundMailer', function() {
         compound.mailer.send('e-commerce/order', function(err, res) {
             if (err) throw err;
             var msg = res.response.toString();
+            msg.indexOf('text/plain').should.not.be.equal(-1);
             msg.indexOf('Header').should.not.be.equal(-1);
             msg.indexOf('Footer').should.not.be.equal(-1);
             msg.indexOf('<a href="/order">Your order</a>').should.not.be.equal(-1);
