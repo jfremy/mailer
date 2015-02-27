@@ -1,3 +1,4 @@
 exports.test = {
-    driver: 'Stub'
+    driver: 'Stub',
+    baseURL: 'http://localhost:3000'
 };
